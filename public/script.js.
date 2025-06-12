@@ -1,6 +1,10 @@
+console.log("Script loaded successfully"); // డీబగ్ చేయడానికి
+
 let display = document.getElementById('display');
+console.log("Display element:", display); // డీబగ్ చేయడానికి
 
 function appendToDisplay(value) {
+    console.log("Appending value:", value); // డీబగ్ చేయడానికి
     display.value += value;
 }
 
