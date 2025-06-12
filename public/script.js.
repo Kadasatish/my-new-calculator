@@ -1,0 +1,27 @@
+let display = document.getElementById('display');
+
+function appendToDisplay(value) {
+    display.value += value;
+}
+
+function clearDisplay() {
+    display.value = '';
+}
+
+async function calculate() {
+    try {
+        const response = await fetch('/api/index', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ expression: display.value })
+        });
+        const data = await response.json();
+        if (data.result !== undefined) {
+            display.value = data.result;
+        } else {
+            display.value = 'Error';
+        }
+    } catch (error) {
+        display.value = 'Error';
+    }
+}
